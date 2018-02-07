@@ -1,10 +1,14 @@
+CREATE DATABASE MessageDB;
+USE MessageDB;
+
 
 CREATE TABLE svr (
-  id varchar(5) PRIMARY KEY,
+  id INT NOT NULL AUTO_INCREMENT,
   name varchar(15),
   address varchar(30),
   port varchar(5),
-  adminLogin varchar(15)
+  adminLogin varchar(15),
+  PRIMARY KEY(id)
 )ENGINE = InnoDB;
 
 CREATE TABLE usr (
@@ -14,7 +18,7 @@ CREATE TABLE usr (
 
 CREATE TABLE rights (
   usrLogin varchar(15),
-  svrId varchar(5)
+  svrId INT
 )ENGINE = InnoDB;
 
 ALTER TABLE rights
@@ -25,3 +29,5 @@ ALTER TABLE rights
 ALTER TABLE svr
   ADD FOREIGN KEY (adminLogin) REFERENCES usr(login);
 
+INSERT INTO svr(name, address, port, adminLogin)
+VALUES('Titi', '169.167.98.26', '8685', NULL);
