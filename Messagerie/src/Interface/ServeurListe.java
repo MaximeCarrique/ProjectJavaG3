@@ -14,14 +14,7 @@ import javafx.stage.Stage;
  *
  * @author artde
  */
-public class MainInterface{
-
-    /**
-     * @param args the command line arguments
-     */
-    /*public static void main(String[] args) {
-         Application.launch(MainInterface.class, args);
-    }
+public class ServeurListe extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -33,15 +26,15 @@ public class MainInterface{
         stage.setScene(scene);
         stage.show();*/
         
-        /*LoginPanel loginPanel = new LoginPanel();
+        LoginPanel loginPanel = new LoginPanel();
         Group root = new Group();
-        root.getChildren().add(loginPanel);
+        //root.getChildren().add(loginPanel);
         Scene scene = new Scene(root, 250, 300);
         stage.setResizable(false);
         stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
         
-    }*/
+    }
     
 }

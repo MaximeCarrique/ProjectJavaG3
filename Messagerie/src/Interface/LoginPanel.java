@@ -5,29 +5,43 @@
  */
 package Interface;
 
+
+import java.awt.event.ActionEvent;
+import java.beans.EventHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
+import javafx.stage.Stage;
 
 /**
  *
  * @author artde
  */
-public class LoginPanel  extends Parent{
+public class LoginPanel  extends Application{
     TextField loginInput;
     PasswordField passwordInput;
     Text loginText;
     Text passwordText;
     Button loginBtn;
     Button cancelBtn;
+    Text error;
     
-    LoginPanel(){
+    public static void main(String[] args) {
+         Application.launch(LoginPanel.class, args);
+    }
+    
+    public void start(Stage stage) throws Exception {
         Group root = new Group();
         loginInput = new TextField();
         loginInput.setLayoutX(50);
@@ -51,18 +65,47 @@ public class LoginPanel  extends Parent{
         loginBtn.setLayoutX(130);
         loginBtn.setLayoutY(210);
         loginBtn.setText("Connexion");
+        Button setOnAction;
+        loginBtn.setOnAction((event) -> {
+            Connection connect = new Connection(loginInput.getText(), passwordInput.getText());
+            ClientInterface client = new ClientInterface();
+            Stage serveur = new Stage();
+            if(connect.getConnextion()){
+                try {
+                    client.start(serveur);
+                    stage.close();
+                } catch (Exception ex) {
+                    Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            else{
+                error.setText("Mots de passe ou identifiant incorect");
+            }
+        });
         cancelBtn = new Button();
         cancelBtn.setLayoutX(50);
         cancelBtn.setLayoutY(210);
         cancelBtn.setText("Annuler");
+        cancelBtn.setOnAction((event) ->{
+            stage.close();
+        });
+        error = new Text();
+        error.setLayoutX(50);
+        error.setLayoutY(270);
+        error.setFill(Color.RED);
         
-        this.getChildren().add(loginText);
-        this.getChildren().add(loginInput);
-        this.getChildren().add(passwordText);
-        this.getChildren().add(passwordInput);
-        this.getChildren().add(loginBtn);
-        this.getChildren().add(cancelBtn);
+        root.getChildren().add(loginText);
+        root.getChildren().add(loginInput);
+        root.getChildren().add(passwordText);
+        root.getChildren().add(passwordInput);
+        root.getChildren().add(loginBtn);
+        root.getChildren().add(cancelBtn);
+        root.getChildren().add(error);
+        Scene scene = new Scene(root, 250, 300);
+        stage.setResizable(false);
+        stage.setTitle("Login");
+        stage.setScene(scene);
+        stage.show();
         
     }
-    
 }
