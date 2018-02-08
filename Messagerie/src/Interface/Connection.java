@@ -5,6 +5,9 @@
  */
 package Interface;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author artde
@@ -19,14 +22,19 @@ public class Connection {
         password = mdp;
     }
     
-    public boolean getConnextion(){
-        System.out.println(login);
-        System.out.println(password);
+    public List<Serveur> getConnextion(){
         if(login.compareTo("arthur") == 0 && password.compareTo("arthur") == 0 /*&& password == "arthur"*/){
-            return true;
+            List<Serveur> list;
+            list = new ArrayList<Serveur>();
+            list.add(new Serveur("Serveur1",1));
+            list.add(new Serveur("Serveur2",2));
+            list.add(new Serveur("Serveur3",3));
+            list.add(new Serveur("Serveur4",4));
+            list.add(new Serveur("Serveur5",5));
+            return list;
         }
         else{
-            return false;
+            return null;
         }
     }
     
