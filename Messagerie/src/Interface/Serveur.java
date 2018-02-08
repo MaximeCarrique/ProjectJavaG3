@@ -15,7 +15,7 @@ import javafx.scene.text.Text;
 public class Serveur {
     
     String name;
-    int id;
+    Integer id;
     Text nameServeur;
     Group root;
     
