@@ -15,19 +15,10 @@ public class MainServeur {
      * creates a new server
      * @param args
      */
-    public static void main(String[] args) {
-        try {
-            if (args.length != 1) {
-                printUsage();
-            } 
-            else {
-                Integer port = new Integer(args[0]);
-                serveur server = new serveur(port);
-            }
-        }
-        catch (IOException e1) {
-            e1.printStackTrace();
-        }
+    public void StartServeur(Integer Port) throws IOException {
+        Integer port = Port;
+        serveur server = new serveur(port);
+         
     }
     
     private static void printUsage() {

@@ -74,7 +74,7 @@ public class ServeurPanel extends Application{
         
         Button setOnAction;
         addServeur.setOnAction((javafx.event.ActionEvent event) -> {
-            AjoutServeur Ajout = new AjoutServeur();
+            NewServeurLocal Ajout = new NewServeurLocal();
             Stage stageAjout = new Stage();
             try {
                 Ajout.start(stageAjout);
