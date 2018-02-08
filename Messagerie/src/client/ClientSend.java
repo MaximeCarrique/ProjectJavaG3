@@ -29,7 +29,6 @@ public class ClientSend implements Runnable {
             out.println(m);
             out.flush();
         }
-
     }
     
 }
