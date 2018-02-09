@@ -6,8 +6,7 @@
 package Interface;
 
 
-import java.awt.event.ActionEvent;
-import java.beans.EventHandler;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -66,12 +65,11 @@ public class LoginPanel  extends Application{
         loginBtn.setLayoutX(130);
         loginBtn.setLayoutY(210);
         loginBtn.setText("Connexion");
-        Button setOnAction;
         loginBtn.setOnAction((javafx.event.ActionEvent event) -> {
-            Connection connect = new Connection(loginInput.getText(), passwordInput.getText());
+            ConnectAPI api = new ConnectAPI(loginInput.getText(), passwordInput.getText());
             Stage serveur = new Stage();
-            List<Serveur> list = connect.getConnextion();
-            ServeurPanel client = new ServeurPanel(list);
+            List<Serveur> list = api.getConnextion();
+            ServeurPanel client = new ServeurPanel(list,api);
             if(list != null){
                 try {
                     client.start(serveur);

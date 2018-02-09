@@ -34,6 +34,7 @@ public class ServeurPanel extends Application{
     Text idServeur;
     Button joinServeur;
     Button addServeur;
+    ConnectAPI api;
     
     
     @Override
@@ -74,10 +75,11 @@ public class ServeurPanel extends Application{
         
         Button setOnAction;
         addServeur.setOnAction((javafx.event.ActionEvent event) -> {
-            NewServeurLocal Ajout = new NewServeurLocal();
+            NewServeurLocal Ajout = new NewServeurLocal(api,this);
             Stage stageAjout = new Stage();
             try {
                 Ajout.start(stageAjout);
+                stage.close();
             } catch (Exception ex) {
                 Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -93,7 +95,13 @@ public class ServeurPanel extends Application{
         
     }
     
-    ServeurPanel(List<Serveur> List){
+    ServeurPanel(List<Serveur> List, ConnectAPI API){
         list = List;
+        api = API;
+    }
+    
+    public void Refresh() throws Exception{
+        Stage stage = new Stage();
+        start(stage);
     }
 }

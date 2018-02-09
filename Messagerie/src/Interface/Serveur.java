@@ -16,18 +16,18 @@ public class Serveur {
     
     String name;
     Integer id;
-    Text nameServeur;
-    Group root;
+    String adresse;
+    Integer port;
+    boolean admin;
     
     
-    Serveur(String nom, int Id){
+    Serveur(String nom, int Id, boolean droit){
         name = nom;
         id = Id;
-        root = new Group();
-        nameServeur = new Text();
-        nameServeur.setText(name);
-        root.getChildren().add(nameServeur);
-        
+        admin = droit;
+        if(admin){
+            adresse = "127.0.0.1";
+        }
     }
     
 }
