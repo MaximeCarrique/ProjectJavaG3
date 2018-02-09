@@ -70,7 +70,9 @@ public class LoginPanel  extends Application{
             Stage serveur = new Stage();
             List<Serveur> list = api.getConnextion();
             ServeurPanel client = new ServeurPanel(list,api);
-            if(list != null){
+            API test = new API();
+            test.executeGet("https://api.jules-grospeiller.fr/server/jules");
+            /*if(list != null){
                 try {
                     client.start(serveur);
                     stage.close();
@@ -80,7 +82,7 @@ public class LoginPanel  extends Application{
             }
             else{
                 error.setText("Mots de passe ou identifiant incorect");
-            }
+            }*/
         });
         cancelBtn = new Button();
         cancelBtn.setLayoutX(50);
