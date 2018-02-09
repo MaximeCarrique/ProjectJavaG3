@@ -62,6 +62,7 @@ public class API {
 
     // Create a method instance.
     GetMethod method = new GetMethod(url);
+    method.addRequestHeader("content-type", "application/json;charset=UTF-8");
 
     // Provide custom retry handler is necessary
     method.getParams().setParameter(HttpMethodParams.RETRY_HANDLER, 
