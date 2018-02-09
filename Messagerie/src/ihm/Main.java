@@ -2,7 +2,9 @@ package ihm;
 
 import java.io.PrintWriter;
 
+import client.Client;
 import javafx.application.Application;
+import javafx.geometry.Orientation;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,10 +14,13 @@ import javafx.scene.layout.BorderStroke;
 import javafx.scene.layout.BorderStrokeStyle;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Main extends Application{
 
+	double yMessage = 0;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch(args);
@@ -24,16 +29,25 @@ public class Main extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
+		
+		//Client user = new Client(server.adresse, server.nom);
+		//ClientSend userS = new ClientSend(user.out);
+		
+//		PrintWriter out = new PrintWriter(new PrintWriter(socket.getOutputStream());
+		
 		primaryStage.setWidth(650);
 		primaryStage.setHeight(660);
 		
 		primaryStage.setTitle("temporaire");	//Changer par le nom du serveur.
+		//primaryStage.setTitle(server.name);
 		
 		Group root = new Group();
 		Scene scene = new Scene(root);
 		
 		FlowPane chat = new FlowPane();			//Panel contenant les messages du chat.
+		chat.setOrientation(Orientation.VERTICAL);
 		FlowPane users = new FlowPane();		//Panel contenant la liste des utilisateurs.
+		users.setOrientation(Orientation.VERTICAL);
 		
 		TextArea ta = new TextArea();			//Zone dans laquelle l'utilisateur écrira.
 		Group buttons = new Group();			//Groupe qui contiendra les boutons.
@@ -47,6 +61,9 @@ public class Main extends Application{
 		Button sendBut = new Button("Send");
 		Button wizzBut = new Button("Wizz");
 		Button quitBut = new Button("Quit"); //Permet d'assurer que le client est bien déconnecté.
+		
+		wizzBut.setVisible(false);
+		quitBut.setVisible(false);
 		
 		buttons.getChildren().add(sendBut);
 		buttons.getChildren().add(wizzBut);
@@ -107,13 +124,13 @@ public class Main extends Application{
 		quitBut.setLayoutX(350);
 		quitBut.setLayoutY(570);
 		
-		PrintWriter out;
-		
 		//Action bouton
 			//Button send
 		sendBut.setOnAction((javafx.event.ActionEvent event) -> {
 			//Ajouter le nom de l'expediteur
-			System.out.println(ta.getText());
+			//userS.
+			Text message = new Text("User : " + ta.getText());
+			chat.getChildren().add(message);
 		});
 		
 			//Button wizz
