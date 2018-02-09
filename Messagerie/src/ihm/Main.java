@@ -3,6 +3,7 @@ package ihm;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderStroke;
@@ -41,9 +42,16 @@ public class Main extends Application{
 		ta.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, null, null)));
 		
 		//Création des boutons
+		Button sendBut = new Button("Send");
+		Button wizzBut = new Button("Wizz");
+		Button quitBut = new Button("Quit"); //Permet d'assurer que le client est bien déconnecté.
 		
+		buttons.getChildren().add(sendBut);
+		buttons.getChildren().add(wizzBut);
+		buttons.getChildren().add(quitBut);
 		
 		//Taille et placement des différents modules.
+			//Zone de chat
 		chat.setMaxWidth(505);
 		chat.setMinWidth(495);
 		chat.setMaxHeight(455);
@@ -51,7 +59,8 @@ public class Main extends Application{
 		
 		chat.setLayoutX(10);
 		chat.setLayoutY(10);
-		
+
+			//Listing users connected
 		users.setMaxWidth(105);
 		users.setMinWidth(95);
 		users.setMaxHeight(605);
@@ -60,6 +69,7 @@ public class Main extends Application{
 		users.setLayoutX(520);
 		users.setLayoutY(10);
 		
+			//TextArea
 		ta.setMaxWidth(505);
 		ta.setMinWidth(495);
 		ta.setMaxHeight(105);
@@ -68,8 +78,32 @@ public class Main extends Application{
 		ta.setLayoutX(10);
 		ta.setLayoutY(460);
 		
-		//Placer le groupe Buttons
+			//Button send
+		sendBut.setMaxWidth(140);
+		sendBut.setMinWidth(150);
+		sendBut.setMaxHeight(45);
+		sendBut.setMinHeight(35);
 		
+		sendBut.setLayoutX(20);
+		sendBut.setLayoutY(570);
+		
+			//Button wizz
+		wizzBut.setMaxWidth(140);
+		wizzBut.setMinWidth(150);
+		wizzBut.setMaxHeight(45);
+		wizzBut.setMinHeight(35);
+		
+		wizzBut.setLayoutX(185);
+		wizzBut.setLayoutY(570);
+		
+			//Button quit
+		quitBut.setMaxWidth(140);
+		quitBut.setMinWidth(150);
+		quitBut.setMaxHeight(45);
+		quitBut.setMinHeight(35);
+		
+		quitBut.setLayoutX(350);
+		quitBut.setLayoutY(570);
 		
 		//Multithreading pour MàJ users et chat [to do]
 		
