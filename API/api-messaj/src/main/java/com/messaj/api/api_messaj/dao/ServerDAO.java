@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.messaj.api.api_messaj.model.Server;
 import com.messaj.api.api_messaj.model.ServerHeader;
+import com.messaj.api.api_messaj.model.User;
 
 public class ServerDAO {
 	
@@ -38,7 +39,6 @@ public class ServerDAO {
 			// reading results
 			ResultSet rs = getServers.getResultSet();
 			while(rs.next()) {
-				
 				ServerHeader s = new ServerHeader();
 				s.setId(rs.getString("id"));
 				s.setName(rs.getString("name"));
@@ -50,5 +50,5 @@ public class ServerDAO {
 			e.printStackTrace();
 		}
 		return servers;
-	}
+	}	
 }

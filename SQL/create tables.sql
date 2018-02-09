@@ -1,6 +1,9 @@
+CREATE DATABASE MessageDB;
+USE MessageDB;
+
 
 CREATE TABLE svr (
-  id varchar(5) PRIMARY KEY,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   name varchar(15),
   address varchar(30),
   port varchar(5),
@@ -14,7 +17,7 @@ CREATE TABLE usr (
 
 CREATE TABLE rights (
   usrLogin varchar(15),
-  svrId varchar(5)
+  svrId INT
 )ENGINE = InnoDB;
 
 ALTER TABLE rights
