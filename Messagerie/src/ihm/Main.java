@@ -1,5 +1,7 @@
 package ihm;
 
+import java.io.PrintWriter;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -105,6 +107,25 @@ public class Main extends Application{
 		quitBut.setLayoutX(350);
 		quitBut.setLayoutY(570);
 		
+		PrintWriter out;
+		
+		//Action bouton
+			//Button send
+		sendBut.setOnAction((javafx.event.ActionEvent event) -> {
+			//Ajouter le nom de l'expediteur
+			System.out.println(ta.getText());
+		});
+		
+			//Button wizz
+		wizzBut.setOnAction((javafx.event.ActionEvent event) -> {
+			//Implementer fonction wizz
+		});
+		
+			//Button quit
+		quitBut.setOnAction((javafx.event.ActionEvent event) -> {
+			//Implementer la deconnexion
+		});
+		
 		//Multithreading pour M‡J users et chat [to do]
 		
 		
@@ -117,5 +138,5 @@ public class Main extends Application{
 		
 		primaryStage.show();
 	}
-
+	
 }

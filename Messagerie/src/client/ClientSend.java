@@ -9,7 +9,6 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 /**
- *
  * @author artde
  */
 public class ClientSend implements Runnable {
