@@ -1,0 +1,9 @@
+address svr :
+https://api.jules-grospeiller.fr
+
+USER :
+	/user			POST	creation d'utilisateur					body(login, password)
+	/user/login		POST	login d'utilisateur					body(login, password)
+
+SERVER : 
+	/server/{userLogin}	GET	recup d'une liste de serveur pour un user donné		path(<userLogin>)

@@ -1,0 +1,26 @@
+Les sources du serveur se trouve dans le repertoire /API/api-messaj.
+
+Logiciels requis : 
+ - mysql :
+	login : user
+	pass : password
+
+ - Maven
+
+
+executer le script SQL/create tables.sql
+la dernière version du script se trouve sur la branche feature/CreatBackend 
+	(sauf merge sur develop entre temps)
+
+
+
+pour compiler lancer la commande 
+	mvn clean install
+le framework spring boot embarque un serveur tomcat qui peut se lancer via la commande 
+	mvn spring-boot:run
+
+puis l'API est accessible par defaut sur le port 8080.
+
+
+avec le logiciel postman,
+il est possible de lancer les appels vers l'API avec les URL se trouvant dans la doc
